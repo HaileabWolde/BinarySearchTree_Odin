@@ -1,7 +1,7 @@
 import buildarray from "./buildarray.js";
 class Tree{
     constructor(arr){
-        root = buildarray(arr);
+       this.root = buildarray(arr);
     }
 }
 export default Tree;
