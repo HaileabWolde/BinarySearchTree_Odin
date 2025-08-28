@@ -71,6 +71,7 @@ class Tree{
                 successorParent.right = successor.right;
             }
         }
+        return node;
     }
     insert(value){
         this.root = this.insertRec(this.root, value);
@@ -79,6 +80,19 @@ class Tree{
         // Implement delete logic here
         // This is a placeholder for the delete method
         this.root = this.deleteRec(this.root, value);
+    }
+    find(value){
+        let current = this.root;
+        while(current !== null){
+            if(value === current.data){
+                return current;
+            } else if(value < current.data){
+                current = current.left;
+            } else {
+                current = current.right;
+            }
+        }
+        return null; // Value not found
     }
    
 }
