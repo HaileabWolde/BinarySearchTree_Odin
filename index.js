@@ -3,6 +3,8 @@ const arr = [1, 2, 3, 4, 5];
 const modArr = [...new Set(arr)].sort();
 const tree = new Tree(modArr);
 
+console.log(tree.depth(4));
+/*console.log(tree.height(3));*/
 /*tree.levelOrderEach((node)=> console.log(node.data));*/
 /*tree.preOrderEach((node)=> console.log(node.data));*/
 /*tree.inOrderEach((node)=> console.log(node.data));*/

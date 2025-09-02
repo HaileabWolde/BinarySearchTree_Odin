@@ -150,5 +150,44 @@ class Tree{
         }
         this.postOrderEach_rec(callback, this.root)
     }
+    height(value) {
+    let node = this.find(value);
+    if (node === null) {
+        return null;
+    }
+    return this.heightRec(node);
+}
+
+heightRec(node) {
+    if (node === null) {
+        return -1;
+    }
+    let leftHeight = this.heightRec(node.left);
+    let rightHeight = this.heightRec(node.right);
+    return Math.max(leftHeight, rightHeight) + 1;
+}
+depth(value){
+    let depth = 0;
+    let node = this.find(value);
+    if(!node){
+        return null;
+    }
+    let current = this.root;
+    if(current.data === value){
+        return 0;
+    }
+    while(current != null){
+        if(current.data === value){
+            return depth;
+        }
+        else if(value < current.data){
+            current = current.left
+        }
+        else{
+            current = current.right
+        }
+        depth++;
+    }
+}
 }
 export default Tree;
