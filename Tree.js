@@ -164,6 +164,7 @@ heightRec(node) {
     }
     let leftHeight = this.heightRec(node.left);
     let rightHeight = this.heightRec(node.right);
+   
     return Math.max(leftHeight, rightHeight) + 1;
 }
 depth(value){
@@ -189,5 +190,14 @@ depth(value){
         depth++;
     }
 }
+ isBalanced(root = this.root) {
+      if(root === null) return true;
+
+      let diff = Math.abs(this.height(root.left) - this.height(root.right));
+
+      if(diff > 1) return false;
+
+      return this.isBalanced(root.left) && this.isBalanced(root.right);
+    }
 }
 export default Tree;
