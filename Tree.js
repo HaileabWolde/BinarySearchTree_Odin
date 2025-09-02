@@ -94,6 +94,18 @@ class Tree{
         }
         return null; // Value not found
     }
-   
+    levelOrderEach(callback){
+        if(!this.root){
+            return null;
+        }
+        let queue = [this.root];
+        while(queue.length > 0){
+            let current = queue.shift();
+            callback(current);
+           if(current.left) queue.push(current.left);
+           if(current.right) queue.push(current.right);
+        }
+    }
+
 }
 export default Tree;
