@@ -98,6 +98,9 @@ class Tree{
         if(!this.root){
             return null;
         }
+        if(callback.typeof != 'function'){
+            console.log("please provide callback function");
+        }
         let queue = [this.root];
         while(queue.length > 0){
             let current = queue.shift();
@@ -106,6 +109,46 @@ class Tree{
            if(current.right) queue.push(current.right);
         }
     }
+    preOrderEach_Rec(callback, Node){
+        let current = Node;
+        if(current === null) return;
+        callback(current);
+        current.left = this.preOrderEach_Rec(callback, current.left);
+        current.right = this.preOrderEach_Rec(callback, current.right);
+    }
+    preOrderEach(callback) {
+        if(!this.root){
+            return null;
+        }
+        this.preOrderEach_Rec(callback, this.root)
+    }
+    inOrderEach_rec(callback, Node){
+        let current = Node;
+        if(current === null) return;
+        this.inOrderEach_rec(callback, Node.left)
+        callback(current)
+        this.inOrderEach_rec(callback, Node.right);
+    }
+    inOrderEach(callback){
+        if(!this.root){
+            return null;
 
+        }
+        this.inOrderEach_rec(callback, this.root)
+    }
+    postOrderEach_rec(callback, Node){
+        let current = Node;
+         if(current === null) return;
+        this.postOrderEach_rec(callback, Node.left)
+        this.postOrderEach_rec(callback, Node.right)
+         callback(current)
+    }
+    postOrderEach(callback){
+        if(!this.root){
+            return null;
+
+        }
+        this.postOrderEach_rec(callback, this.root)
+    }
 }
 export default Tree;
