@@ -1,4 +1,5 @@
 This is A readme file for Binary Search Tree:
+
 What are Binary Search Trees?
 #Well Binary Search trees take a group of data and turn them in to tree of nodes where the right side are greater than left side 
 What are Balanced Search Trees?
