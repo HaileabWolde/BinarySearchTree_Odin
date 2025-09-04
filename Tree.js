@@ -40,9 +40,10 @@ class Tree{
             if(prev === null){
                 return current.right; // Deleting root node
             }
-            if(prev.left === current){
+            if(prev.left === current){ // If the current node is on the left side 
+
                 prev.left = current.right;
-            } else {
+            } else {                    // If the current node i son the right side
                 prev.right = current.right;
             }
         } else if(current.right === null){
@@ -101,12 +102,12 @@ class Tree{
         if(callback.typeof != 'function'){
             console.log("please provide callback function");
         }
-        let queue = [this.root];
-        while(queue.length > 0){
-            let current = queue.shift();
-            callback(current);
-           if(current.left) queue.push(current.left);
-           if(current.right) queue.push(current.right);
+        let queue = [this.root];// put the whole tree on the quee
+        while(queue.length > 0){ // while the queue exist 
+            let current = queue.shift(); // take one from the queue or array
+            callback(current); // display the node data
+           if(current.left) queue.push(current.left); //push left node 
+           if(current.right) queue.push(current.right); // push the right node
         }
     }
     preOrderEach_Rec(callback, Node){
@@ -116,13 +117,13 @@ class Tree{
         current.left = this.preOrderEach_Rec(callback, current.left);
         current.right = this.preOrderEach_Rec(callback, current.right);
     }
-    preOrderEach(callback) {
+    preOrderEach(callback) {// display on the base of root, left, right
         if(!this.root){
             return null;
         }
         this.preOrderEach_Rec(callback, this.root)
     }
-    inOrderEach_rec(callback, Node){
+    inOrderEach_rec(callback, Node){// display on the base of left, root, right
         let current = Node;
         if(current === null) return;
         this.inOrderEach_rec(callback, Node.left)

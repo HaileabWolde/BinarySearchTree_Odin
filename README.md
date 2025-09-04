@@ -21,3 +21,4 @@ Right side: Recursively build a subtree from just after the middle to the end.
 
 
 Keep going: Repeat until every piece of the array is a node in the tree.
+insert(value): so to insert a value we should have the whole tree and then transverse through the nodes based on the condition on where if the node value is greter than the value we should have recurssive function on the right side of the node and if not we should have recurssive function on the left side until we reach a node which is null and then we should create the node and add it to the respective place based on the call stack.
